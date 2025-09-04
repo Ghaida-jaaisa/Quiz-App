@@ -1,4 +1,4 @@
-class Answer {
+export class Answer {
   constructor(id, questionId, content) {
     this.id = id;
     this.questionId = questionId;
@@ -9,5 +9,3 @@ class Answer {
     return question.validateAnswer(this.content);
   }
 }
-
-export { Answer };

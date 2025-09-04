@@ -3,19 +3,26 @@ export class Question {
     this.id = id;
     this.text = text;
   }
-  display() {
-    return `</h2>Q${this.id}: ${this.text}</h2>`;
+
+  displayQuestion() {
+    return `<h2>Q${this.id}: ${this.text}</h2>`;
   }
+
   validateAnswer(answer) {}
 }
 
-class MultipleChoiceQuestion extends Question {
+export class MultipleChoiceQuestion extends Question {
   constructor(id, text, choices, correctAnswer) {
     super(id, text);
     this.choices = choices;
     this.correctAnswer = correctAnswer;
   }
-  display() {
+
+  displayQuestion() {
+    return super.displayQuestion(); 
+  }
+
+  displayAnswers() {
     let choicesHtml = this.choices
       .map(
         (choice, index) =>
@@ -27,16 +34,23 @@ class MultipleChoiceQuestion extends Question {
       .join("");
     return choicesHtml;
   }
+
   validateAnswer(answer) {
     return answer === this.correctAnswer;
   }
 }
-class TrueFalseQuestion extends Question {
+
+export class TrueFalseQuestion extends Question {
   constructor(id, text, correctAnswer) {
     super(id, text);
     this.correctAnswer = correctAnswer;
   }
-  display() {
+
+  displayQuestion() {
+    return super.displayQuestion();   
+  }
+
+  displayAnswers() {
     return `<div>
                 <input type="radio" name="q${this.id}" id="q${this.id}true" value="true">
                 <label for="q${this.id}true">True</label>
@@ -46,8 +60,8 @@ class TrueFalseQuestion extends Question {
                 <label for="q${this.id}false">False</label>
             </div>`;
   }
+
   validateAnswer(answer) {
     return answer === this.correctAnswer.toString();
   }
 }
-export { MultipleChoiceQuestion, TrueFalseQuestion };
