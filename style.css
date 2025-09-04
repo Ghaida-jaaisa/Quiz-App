@@ -1,0 +1,142 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #fff;
+}
+
+header {
+  background-color: #0f469a;
+  color: white;
+}
+header .container {
+  width: calc(100% - 100px);
+  margin: auto;
+  padding: 20px 0;
+}
+
+header .container .row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#startBtn {
+  background-color: white;
+  color: #0f469a;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+#questions {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.question {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  margin: 20px 20px;
+  padding: 20px;
+  gap: 20px;
+  box-shadow: 0px 0px 16px 0px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  width: 45%;
+}
+
+.question #question-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+  width: 100%;
+}
+
+.question img {
+  width: 80px;
+  height: 80px;
+  box-shadow: 0px 0px 16px 0px rgba(255, 0, 0, 0.25);
+  border-radius: 50%;
+  padding: 5px;
+}
+
+.question #bottons {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.right-side {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+#solved {
+  border: 2px solid #28a745;
+  background-color: #d4edda;
+  color: #155724;
+  padding: 10px;
+  border-radius: 8px;
+  width: 80px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+#editBtn {
+  border: 2px solid #007bff;
+  background-color: #cce5ff;
+  color: #004085;
+  padding: 10px;
+  border-radius: 8px;
+  width: 80px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+#enterBtn {
+  border: 2px solid #6610f2;
+  background-color: #e0cffc;
+  color: #21005d;
+  padding: 10px;
+  border-radius: 8px;
+  width: 80px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+footer {
+  background-color: #f1f5fa;
+  padding: 20px 0;
+  color: black;
+  text-align: center;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  font-size: 18px;
+}
+
+footer .container {
+  width: calc(100% - 100px);
+  margin: auto;
+}

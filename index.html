@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz App</title>
+    <link rel="stylesheet" href="./style.css">
+    <script defer src="./app.js"></script>
+</head>
+
+<body>
+
+    <header>
+        <div class="container">
+            <div class="row">
+                <div class="logo">
+                    <img src="./imgs/user-solid-full.svg" alt="logo">
+                </div>
+                <div id="title">
+                    <h1>Quiz App</h1>
+                </div>
+                <div id="start-btn">
+                    <button id="startBtn">Start Quiz</button>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="container">
+            <!-- Questions will listed here -->
+            <div id="questions">
+                <div class="question">
+                    <div id="question-card">
+                        <img src="./imgs/modern-question-mark-template-idea-message-vector_1017-47932.jpg"
+                            alt="question">
+                        <h2>Question Text</h2>
+                        <div class="right-side">
+                            <p id="solved">Solved</p>
+                            <div id="bottons">
+                                <!-- For unsolved questions -->
+                                <!-- <button id="enterBtn">Enter</button> -->
+                                <!-- for solved questions -->
+                                <button id="editBtn">Edit</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="answer-card">
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Quiz App. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+
+</html>
