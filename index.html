@@ -6,7 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quiz App</title>
     <link rel="stylesheet" href="./style.css">
-    <script defer src="./app.js"></script>
+    <script defer src="script.js" type="module"></script>
+    <!-- <script defer src="./modules/QuizManager.js" type="module"></script>
+    <script defer src="./modules/question.js" type="module"></script> -->
 </head>
 
 <body>
@@ -26,29 +28,16 @@
             </div>
         </div>
     </header>
-    <main>
+    <main id="main-content">
         <div class="container">
-            <!-- Questions will listed here -->
             <div id="questions">
-                <div class="question">
-                    <div id="question-card">
-                        <img src="./imgs/modern-question-mark-template-idea-message-vector_1017-47932.jpg"
-                            alt="question">
-                        <h2>Question Text</h2>
-                        <div class="right-side">
-                            <p id="solved">Solved</p>
-                            <div id="bottons">
-                                <!-- For unsolved questions -->
-                                <!-- <button id="enterBtn">Enter</button> -->
-                                <!-- for solved questions -->
-                                <button id="editBtn">Edit</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="answer-card">
-                    </div>
-                </div>
-                
+                <!-- Questions will listed here -->
+    
+            </div>
+
+            <div id="controlBtn" style="display: none;">
+                <button id="resetBtn">Reset Quiz</button>
+                <button id="submitBtn">Submit Quiz</button>
             </div>
         </div>
     </main>
