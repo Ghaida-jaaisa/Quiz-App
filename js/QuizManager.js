@@ -16,7 +16,7 @@ export class QuizManager {
     this.score = 0;
     answers.forEach((ans) => {
       const question = this.questions.find((q) => q.id === ans.questionId);
-      if (question && ans.isCorrect(question)) {
+      if (question && question.isCorrect(ans.answer)) {
         this.score++;
       }
     });
@@ -28,6 +28,6 @@ export class QuizManager {
   }
 
   isPassed() {
-    return this.score / this.questions.length >= passingScore;
+    return this.score / this.questions.length >= this.passingScore;
   }
 }

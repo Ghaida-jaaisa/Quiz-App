@@ -21,7 +21,9 @@ export class TrueFalseQuestion extends Question {
             </div>`;
   }
 
-  isCorrect(answer) {
-    return answer === this.correctAnswer.toString();
+  isCorrect(userAnswers) {
+    const sortedUser = [...userAnswers].sort();
+    const sortedCorrect = [...this.correctAnswers].sort();
+    return JSON.stringify(sortedUser) === JSON.stringify(sortedCorrect);
   }
 }

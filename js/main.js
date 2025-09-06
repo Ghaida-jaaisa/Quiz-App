@@ -1,59 +1,45 @@
-import { QuizManager } from "./modules/QuizManager.js";
-import { MultipleChoiceQuestion } from "./modules/Question.js";
-import { TrueFalseQuestion } from "./modules/Question.js";
+import { QuizManager } from "./QuizManager";
+import { Storage } from "./Storage";
+import { MultipleChoiceQuestion } from "./MultipleChoiceQuestion";
+import { TrueFalseQuestion } from "./TrueFalseQuestion";
 
-document.getElementById("startBtn").addEventListener("click", function () {
-    startBtn.style.display = "none";
-  const resetBtn = document.getElementById("resetBtn");
-  const submitBtn = document.getElementById("submitBtn");
-  const controlBtn = document.getElementById("controlBtn");
+const quiz = new QuizManager();
 
 
+// add questions
+quiz.addQuestion(
+  new MultipleChoiceQuestion(1, )
 
-  startBtn?.addEventListener("click", function () {
-    alert("Quiz Started!");
-  });
+)
+// عند تحميل الصفحة
+if (Storage.isQuizFinished()) {
+  Storage.clearAnswers();
+  Storage.clearQuizFinished();
+}
+const savedAnswers = Storage.getAnswers();
+// استخدمي savedAnswers لعرض الإجابات المختارة في الـ UI
 
-  const quizManager = new QuizManager();
-  quizManager.addQuestion(
-    new MultipleChoiceQuestion(
-      1,
-      "What is the capital of France?",
-      ["Berlin", "Madrid", "Paris", "Rome"],
-      "Paris"
-    )
-  );
-  quizManager.addQuestion(new TrueFalseQuestion(2, "The sky is blue.", true));
+// عند اختيار إجابة
+function onAnswerSelected(questionId, answer) {
+  const answers = Storage.getAnswers();
+  answers[questionId] = answer;
+  Storage.saveAnswers(answers);
+}
 
-  let questionsContainer = document.getElementById("questions-container");
+// عند الضغط على Reset
+function onReset() {
+  Storage.clearAnswers();
+  Storage.clearQuizFinished();
+  // أعد تعيين الـ UI
+}
 
-  if (
-    quizManager !== null &&
-    typeof quizManager.displayAllQuestions === "function"
-  ) {
-    if (questionsContainer) {
-      questionsContainer.innerHTML = quizManager.questions
-        .map(
-          (q) => `
-            <div class="question">
-              <div id="question-card">
-                <img src="./imgs/modern-question-mark-template-idea-message-vector_1017-47932.jpg" alt="question">
-                ${q.displayQuestion()}
-                <div class="right-side">
-                  <p id="solved">Solved</p>
-                  <div id="bottons">
-                    <button id="enterBtn">Enter</button>
-                    <button id="editBtn">Edit</button>
-                  </div>
-                </div>
-              </div>
-              <div class="answer-card" style="display: none;">
-                ${q.displayAnswers()}
-              </div>
-            </div>
-          `
-        )
-        .join("");
-    }
-  }
-});
+// عند الضغط على Submit
+function onSubmit() {
+  const userAnswers = Object.entries(Storage.getAnswers()).map(([questionId, answer]) => ({
+    questionId: Number(questionId),
+    answer: answer,
+  }));
+  quiz.submitAnswers(userAnswers);
+  // أظهر النتيجة في الـ UI
+  Storage.setQuizFinished();
+}
