@@ -107,7 +107,7 @@ header .container .row {
   gap: 10px;
 }
 
-#solved {
+.solved {
   border: 2px solid #28a745;
   background-color: #d4edda;
   color: #155724;
@@ -117,8 +117,19 @@ header .container .row {
   font-weight: bold;
   cursor: pointer;
 }
+.unsolved {
+  border: 2px solid #dc3545;
+  background-color: #f8d7da;
+  color: #721c24;
+  padding: 10px;
+  border-radius: 8px;
+  width: 80px;
+  font-weight: bold;
+  cursor: pointer;
+}
 
-#editBtn {
+
+.editBtn {
   border: 2px solid #007bff;
   background-color: #cce5ff;
   color: #004085;
@@ -129,7 +140,7 @@ header .container .row {
   cursor: pointer;
 }
 
-#enterBtn {
+.enterBtn {
   border: 2px solid #6610f2;
   background-color: #e0cffc;
   color: #21005d;
@@ -216,8 +227,7 @@ header .container .row {
   font-weight: bold;
 }
 
-
-.question div {
+/* .question input {
   width: 100%;
   max-width: 300px;
   padding: 10px 14px;
@@ -226,8 +236,7 @@ header .container .row {
   font-size: 14px;
   outline: none;
   transition: all 0.3s ease;
-}
-
+} */
 
 .button {
   margin-top: 20px;
@@ -257,3 +266,4 @@ footer .container {
   width: calc(100% - 100px);
   margin: auto;
 }
+

@@ -28,27 +28,31 @@
         <!-- Questions will be listed here -->
         <div id="questions-container"></div>
 
+
+
+
+        
         <div id="controlBtn" class="controls" style="display: none">
           <button id="resetBtn" class="btn">Reset Quiz</button>
           <button id="submitBtn" class="btn">Submit Quiz</button>
         </div>
       </div>
     </main>
-
     <section
       class="dialog"
       id="resultDialog"
       role="dialog"
       aria-labelledby="resultTitle"
-      style="display: none"
     >
-      <h2 id="resultTitle">Test Result</h2>
-      <div class="score">
-        You answered <strong id="correctAnswers">0</strong> out of
-        <strong id="totalAnswers">0</strong> questions correctly.
+      <div class="dialog-content">
+        <h2 id="resultTitle">Test Result</h2>
+        <div class="score">
+          You answered <strong id="correctAnswers">0</strong> out of
+          <strong id="totalAnswers">0</strong> questions correctly.
+        </div>
+        <div id="resultStatus" class="status"></div>
+        <button id="closeResultBtn" class="btn">OK</button>
       </div>
-      <div id="resultStatus" class="status"></div>
-      <button id="closeResultBtn" class="btn">OK</button>
     </section>
 
     <footer>

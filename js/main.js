@@ -98,11 +98,35 @@ const closeResultBtn = document.getElementById("closeResultBtn");
 
 function renderQuestions() {
   questionsContainer.innerHTML = "";
+
   quiz.questions.forEach((q) => {
     const div = document.createElement("div");
     div.classList.add("question");
-    div.innerHTML = q.displayQuestion() + q.displayAnswers();
+
+    div.innerHTML = `
+      <div class="question-card">
+        <img src="./imgs/modern-question-mark-template-idea-message-vector_1017-47932.jpg" alt="question">
+        <h2>${q.text}</h2>
+        <div class="answers" style="display:none;">${q.displayAnswers()}</div>
+        <div class="right-side">
+          <p class="status-text unsolved">Unsolved</p>
+          <div class="buttons">
+            <button class="enterBtn">Enter</button>
+          </div>
+        </div>
+      </div>
+    `;
+
     questionsContainer.appendChild(div);
+
+    const answersDiv = div.querySelector(".answers");
+    const enterBtn = div.querySelector(".enterBtn");
+    const statusText = div.querySelector(".status-text");
+
+    enterBtn.addEventListener("click", () => {
+      answersDiv.style.display = "block";
+      enterBtn.style.display = "none";
+    });
 
     const inputs = div.querySelectorAll(`input[name="q${q.id}"]`);
     inputs.forEach((input) => {
@@ -110,7 +134,18 @@ function renderQuestions() {
         const selected = Array.from(
           div.querySelectorAll(`input[name="q${q.id}"]:checked`)
         ).map((i) => i.value);
+
         quiz.answerQuestion(q.id, selected);
+
+        if (selected.length > 0) {
+          statusText.textContent = "Solved";
+          statusText.classList.remove("unsolved");
+          statusText.classList.add("solved");
+        } else {
+          statusText.textContent = "Unsolved";
+          statusText.classList.remove("solved");
+          statusText.classList.add("unsolved");
+        }
       });
 
       if (quiz.userAnswers[q.id]) {
@@ -127,12 +162,14 @@ function renderQuestions() {
 startBtn.addEventListener("click", () => {
   renderQuestions();
   controlBtn.style.display = "";
+  dialog.style.display = "none";
   startBtn.style.display = "none";
 });
 
 resetBtn.addEventListener("click", () => {
   quiz.resetQuiz();
   renderQuestions();
+  questionsContainer.style.display = "";
 });
 
 submitBtn.addEventListener("click", () => {
@@ -143,11 +180,13 @@ submitBtn.addEventListener("click", () => {
     ? "✅ You passed the test!"
     : "❌ You did not pass the test.";
   resultStatus.className = quiz.isPassed() ? "status success" : "status fail";
-  dialog.style.display = "block";
+  dialog.style.display = "";
+  questionsContainer.style.display = "none";
 });
 
 closeResultBtn.addEventListener("click", () => {
   dialog.style.display = "none";
   quiz.resetQuiz();
   renderQuestions();
+  questionsContainer.style.display = "";
 });
