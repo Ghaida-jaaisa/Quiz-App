@@ -6,8 +6,6 @@
     <title>Quiz App</title>
     <link rel="stylesheet" href="./style.css" />
     <script defer src="script.js" type="module"></script>
-    <!-- <script defer src="./modules/QuizManager.js" type="module"></script>
-    <script defer src="./modules/question.js" type="module"></script> -->
   </head>
 
   <body>
@@ -15,41 +13,43 @@
       <div class="container">
         <div class="row">
           <div class="logo">
-            <img src="./imgs/user-solid-full.svg" alt="logo" />
+            <img src="./imgs/user-solid-full.svg" alt="App Logo" />
           </div>
-          <div id="title">
-            <h1>Quiz App</h1>
-          </div>
+          <h1 id="title">Quiz App</h1>
           <div id="start-btn">
             <button id="startBtn">Start Quiz</button>
           </div>
         </div>
       </div>
     </header>
+
     <main id="main-content">
       <div class="container">
-        <div id="questions-container">
-          <!-- Questions will listed here -->
-        </div>
+        <!-- Questions will be listed here -->
+        <div id="questions-container"></div>
 
-        <div id="controlBtn" style="display: none">
-          <button id="resetBtn">Reset Quiz</button>
-          <button id="submitBtn">Submit Quiz</button>
+        <div id="controlBtn" class="controls" style="display: none">
+          <button id="resetBtn" class="btn">Reset Quiz</button>
+          <button id="submitBtn" class="btn">Submit Quiz</button>
         </div>
       </div>
     </main>
 
-    <div class="dialog" style="display: none;">
-      <h2>Test Result</h2>
+    <section
+      class="dialog"
+      id="resultDialog"
+      role="dialog"
+      aria-labelledby="resultTitle"
+      style="display: none"
+    >
+      <h2 id="resultTitle">Test Result</h2>
       <div class="score">
-        You answered <strong id="correctAnswers">7</strong> out of
-        <strong id="totalAnswers">10</strong> questions correctly.
+        You answered <strong id="correctAnswers">0</strong> out of
+        <strong id="totalAnswers">0</strong> questions correctly.
       </div>
-      <div class="status success">✅ You passed the test!</div>
-      <div class="status fail">❌ You did not pass the test.</div>
-
-      <button class="button">OK</button>
-    </div>
+      <div id="resultStatus" class="status"></div>
+      <button id="closeResultBtn" class="btn">OK</button>
+    </section>
 
     <footer>
       <div class="container">
