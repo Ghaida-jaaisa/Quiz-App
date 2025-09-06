@@ -147,8 +147,6 @@ header .container .row {
   gap: 10px;
 }
 
-
-
 #controlBtn {
   display: flex;
   justify-content: center;
@@ -185,6 +183,55 @@ header .container .row {
 #resetBtn:hover {
   transform: translateY(-3px);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* 
+ */
+
+.dialog {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  width: 300px;
+  text-align: center;
+  margin: 150px auto;
+}
+
+.dialog h2 {
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.score {
+  font-size: 20px;
+  margin-bottom: 15px;
+  color: #555;
+}
+
+.status.success {
+  color: #2ecc71;
+  font-weight: bold;
+}
+
+.status.fail {
+  color: #e74c3c;
+  font-weight: bold;
+}
+
+.button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  background-color: #3498db;
+  color: white;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.button:hover {
+  background-color: #2980b9;
 }
 
 footer {

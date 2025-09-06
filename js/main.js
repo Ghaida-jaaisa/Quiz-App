@@ -1,7 +1,6 @@
 import { QuizManager } from "./modules/QuizManager.js";
 import { MultipleChoiceQuestion } from "./modules/Question.js";
 import { TrueFalseQuestion } from "./modules/Question.js";
-import { Answer } from "./modules/Answer.js";
 
 document.getElementById("startBtn").addEventListener("click", function () {
     startBtn.style.display = "none";
