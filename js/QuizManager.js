@@ -1,9 +1,9 @@
-import { MultipleChoiceQuestion } from "./MultipleChoiceQuestion";
-import { TrueFalseQuestion } from "./TrueFalseQuestion";
+import { Storage } from "./Storage";
 
 export class QuizManager {
   constructor() {
     this.questions = [];
+    this.userAnswers = Storage.getAnswers();
     this.score = 0;
     this.passingScore = 0.7;
   }
@@ -12,19 +12,26 @@ export class QuizManager {
     this.questions.push(question);
   }
 
-  submitAnswers(answers) {
+  answerQuestion(questionId, answer) {
+    this.userAnswers[questionId] = answer;
+    Storage.saveAnswers(this.userAnswers);
+  }
+
+  submitQuiz() {
     this.score = 0;
-    answers.forEach((ans) => {
-      const question = this.questions.find((q) => q.id === ans.questionId);
-      if (question && question.isCorrect(ans.answer)) {
-        this.score++;
-      }
+    this.questions.forEach((q) => {
+      const ans = this.userAnswers[q.id] || [];
+      if (q.isCorrect(ans)) this.score++;
     });
+    Storage.setQuizFinished();
     return this.score;
   }
 
-  getScore() {
-    return this.score;
+  resetQuiz() {
+    this.userAnswers = {};
+    Storage.clearAnswers();
+    Storage.clearQuizFinished();
+    this.score = 0;
   }
 
   isPassed() {
