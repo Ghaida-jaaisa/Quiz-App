@@ -69,7 +69,7 @@ header .container .row {
   border-radius: 10px;
   width: 45%;
   min-height: 200px;
-  max-height: 300px;
+  max-height: 400px;
 }
 
 .question #question-card {
@@ -215,6 +215,19 @@ header .container .row {
   color: #e74c3c;
   font-weight: bold;
 }
+
+
+.question div {
+  width: 100%;
+  max-width: 300px;
+  padding: 10px 14px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 14px;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
 
 .button {
   margin-top: 20px;

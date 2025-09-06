@@ -1,30 +1,88 @@
-import { QuizManager } from "./QuizManager";
-import { MultipleChoiceQuestion } from "./MultipleChoiceQuestion";
-import { TrueFalseQuestion } from "./TrueFalseQuestion";
+import { QuizManager } from "./QuizManager.js";
+import { MultipleChoiceQuestion } from "./MultipleChoiceQuestion.js";
+import { TrueFalseQuestion } from "./TrueFalseQuestion.js";
 
 const quiz = new QuizManager();
 
 quiz.addQuestion(
   new MultipleChoiceQuestion(
     1,
-    "Which are JS data types?",
-    ["String", "Number", "Boolean", "HTML"],
+    "Which are primitive data types in JavaScript?",
+    ["Object", "String", "Number", "Boolean"],
     ["String", "Number", "Boolean"]
   )
 );
+
 quiz.addQuestion(
-  new TrueFalseQuestion(2, "JavaScript is a programming language.", "true")
+  new TrueFalseQuestion(
+    2,
+    "JavaScript can be used for both Frontend and Backend development.",
+    "true"
+  )
 );
+
 quiz.addQuestion(
   new MultipleChoiceQuestion(
     3,
-    "Select even numbers:",
-    ["1", "2", "3", "4"],
-    ["2", "4"]
+    "Which keywords are used to declare variables in JavaScript?",
+    ["let", "var", "const", "define"],
+    ["let", "var", "const"]
   )
 );
+
 quiz.addQuestion(
-  new TrueFalseQuestion(4, "CSS stands for Cascading Style Sheets.", "true")
+  new TrueFalseQuestion(4, "NaN stands for 'Not a Number'.", "true")
+);
+
+quiz.addQuestion(
+  new MultipleChoiceQuestion(
+    5,
+    "Which of the following are looping statements?",
+    ["for", "while", "repeat", "do...while"],
+    ["for", "while", "do...while"]
+  )
+);
+
+quiz.addQuestion(
+  new TrueFalseQuestion(
+    6,
+    "In JavaScript, arrays are zero-indexed (start from 0).",
+    "true"
+  )
+);
+
+quiz.addQuestion(
+  new MultipleChoiceQuestion(
+    7,
+    "Which are valid comparison operators in JS?",
+    ["==", "===", "=", "!="],
+    ["==", "===", "!="]
+  )
+);
+
+quiz.addQuestion(
+  new TrueFalseQuestion(
+    8,
+    "JSON stands for JavaScript Object Notation.",
+    "true"
+  )
+);
+
+quiz.addQuestion(
+  new MultipleChoiceQuestion(
+    9,
+    "Which methods are used for array manipulation?",
+    ["push", "pop", "append", "shift"],
+    ["push", "pop", "shift"]
+  )
+);
+
+quiz.addQuestion(
+  new TrueFalseQuestion(
+    10,
+    "The 'this' keyword in JavaScript always refers to the global object.",
+    "false"
+  )
 );
 
 const questionsContainer = document.getElementById("questions-container");
@@ -68,7 +126,7 @@ function renderQuestions() {
 
 startBtn.addEventListener("click", () => {
   renderQuestions();
-  controlBtn.style.display = "block";
+  controlBtn.style.display = "";
   startBtn.style.display = "none";
 });
 

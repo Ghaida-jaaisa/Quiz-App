@@ -1,4 +1,4 @@
-import { Question } from "./Question";
+import { Question } from "./Question.js";
 
 export class MultipleChoiceQuestion extends Question {
   constructor(id, text, choices, correctAnswer) {
